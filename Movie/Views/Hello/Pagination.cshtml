@@ -1,0 +1,442 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://wyzant-dev.github.io/vue-radial-progress/ -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Vue.js Radial Progress Bar Demo</title>
+    <style>
+        html, body {
+            background: #4e4f4f;
+            text-align: center;
+            color: #FFF;
+            font-family: 'Open Sans', Helvetica, Verdana, sans-serif;
+            font-size: 16px;
+        }
+
+        #app {
+            display: flex;
+            align-items: center;
+        }
+
+        .radial-progress-display {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .radial-progress-controls {
+            display: flex;
+            flex: 1;
+        }
+
+        .controls {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+            .controls button {
+                border-radius: 5px;
+                color: #fff;
+                padding: 13px 20px;
+                background: #ff9f37;
+                border: 0;
+                outline: 0;
+                line-height: 1.3em;
+                text-transform: uppercase;
+                cursor: pointer;
+                box-sizing: border-box;
+            }
+
+                .controls button:hover {
+                    background: #ff9f37;
+                }
+
+        p {
+            margin: 5px 0;
+        }
+
+        .visible-collapse {
+            visibility: collapse;
+        }
+
+        input {
+            margin: 0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input, button {
+            font: inherit;
+            margin-bottom: 10px;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        label {
+            margin-right: 15px;
+        }
+
+        .spc-b {
+            margin-bottom: 30px;
+        }
+    </style>
+    <link href="~/Scripts1/css.css" rel="stylesheet" />
+    <script src="~/Scripts1/buttons.js.download.js"></script>
+     @*<link href="./Vue.js Radial Progress Bar Demo_files/css" rel="stylesheet">*@
+    @*<script async="" defer="" src="./Vue.js Radial Progress Bar Demo_files/buttons.js.download"></script>*@
+    <style type="text/css">
+        .radial-progress-container {
+            position: relative;
+        }
+
+        .radial-progress-inner {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vue.js Radial Progress Bar</h1>
+    <p class="spc-b">Customizable radial progress bar component with gradients and animations!</p>
+    <div class="spc-b">         
+        
+               
+        <iframe allowtransparency="true" scrolling="no" frameborder="0" src="~/Scripts1/buttons.html" style="width: 161px; height: 28px; border: none;"></iframe>
+    </div>
+    <div id="app">
+        <div class="radial-progress-display">
+            <div class="radial-progress-container" style="height: 300px; width: 300px;">
+                <div class="radial-progress-inner" style="width: 280px;">
+                    <p>Total steps: 8</p>
+                    <p>Completed steps: 3</p>
+                </div> <svg class="radial-progress-bar" version="1.1" xmlns="http://www.w3.org/2000/svg" height="300" width="300"> <defs> <radialgradient id="radial-gradient" fx="0.14943893192102714" fy="0.8565205990505034" cx="0.5" cy="0.5" r="0.65"> <stop offset="30%" stop-color="#bbff42"></stop> <stop offset="100%" stop-color="#429321"></stop> </radialgradient> </defs> <circle fill="transparent" stroke-dashoffset="0" stroke-linecap="round" r="140" cx="150" cy="150" stroke="#323232" stroke-dasharray="879.645943005142" style="height: 300px; width: 300px; stroke-width: 10px;"></circle> <circle fill="transparent" stroke="url(#radial-gradient)" stroke-linecap="round" transform="rotate(270, 150,150)" r="140" cx="150" cy="150" stroke-dasharray="879.645943005142" stroke-dashoffset="879.645943005142" style="height: 300px; width: 300px; stroke-width: 10px; stroke-dashoffset: 549.779; transition: stroke-dashoffset 994ms linear;"></circle> </svg>
+            </div><!--v-component-->
+            <div class="controls">
+                <button>Prev</button>
+                <button>Next</button>
+            </div>
+        </div>
+        <table class="radial-progress-controls text-right">
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="total-steps">Total steps</label>
+                    </td>
+                    <td>
+                        <input id="total-steps" type="number" placeholder="Total steps" value="8">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="animate-speed">Animate speed</label>
+                    </td>
+                    <td>
+                        <input id="animate-speed" type="number" placeholder="Animate speed" value="994">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="diameter">Diameter</label>
+                    </td>
+                    <td>
+                        <input id="diameter" type="number" placeholder="Diameter" value="300">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="stroke-width">Stoke width</label>
+                    </td>
+                    <td>
+                        <input id="stroke-width" type="number" placeholder="Stroke width" value="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="timing-function">Timing function</label>
+                    </td>
+                    <td>
+                        <input id="timing-function" type="text" placeholder="Timing function" value="linear">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="start-color">Start color</label>
+                    </td>
+                    <td>
+                        <input id="start-color" type="color" placeholder="Start color" value="#bbff42">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="stop-color">Stop color</label>
+                    </td>
+                    <td>
+                        <input id="stop-color" type="color" placeholder="Stop color" value="#429321">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="inner-stroke-color">Inner stroke color</label>
+                    </td>
+                    <td>
+                        <input id="inner-stroke-color" type="color" placeholder="Inner stroke color" value="#323232">
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <script src="~/Scripts1/vue.min.js.download.js"></script>
+        <script src="~/Scripts1/vue-radial-progress.min.js.download.js"></script>
+        @*<script src="./Vue.js Radial Progress Bar Demo_files/vue.min.js.download"></script>
+        <script src="./Vue.js Radial Progress Bar Demo_files/vue-radial-progress.min.js.download"></script>*@
+
+        <script>
+      Vue.config.debug = true
+
+      new Vue({
+        el: '#app',
+        components: {
+          RadialProgressBar: RadialProgressBar,
+        },
+        data () {
+          return {
+            completedSteps: 1,
+            totalSteps: 6,
+            animateSpeed: 1000,
+            diameter: 300,
+            strokeWidth: 10,
+            startColor: '#bbff42',
+            stopColor: '#429321',
+            innerStrokeColor: '#323232',
+            timingFunc: 'linear'
+          }
+        },
+        methods: {
+          timingFuncChanged(e) {
+            this.timingFunc = e.target.value
+          },
+
+          innerStrokeColorChanged (e) {
+            this.innerStrokeColor = e.target.value
+          },
+
+          stopColorChanged (e) {
+            this.stopColor = e.target.value
+          },
+
+          startColorChanged (e) {
+            this.startColor = e.target.value
+          },
+
+          strokeWidthChanged (e) {
+            e.preventDefault()
+            const val = e.target.value
+
+            if (!val || isNaN(val)) {
+              return false
+            }
+
+            this.strokeWidth = parseInt(val)
+          },
+
+          diameterChanged (e) {
+            e.preventDefault()
+            const val = e.target.value
+
+            if (!val || isNaN(val)) {
+              return false
+            }
+
+            this.diameter = parseInt(val)
+          },
+
+          animateSpeedChanged (e) {
+            e.preventDefault()
+            const val = e.target.value
+
+            if (!val || isNaN(val)) {
+              return false
+            }
+
+            this.animateSpeed = parseInt(val)
+          },
+
+          totalStepsChanged (e) {
+            e.preventDefault()
+            const val = e.target.value
+
+            if (!val || isNaN(val)) {
+              return false
+            }
+
+            this.totalSteps = parseInt(val)
+          },
+          nextStep () {
+            this.completedSteps += 1
+          },
+          prevStep () {
+            this.completedSteps -= 1
+          }
+        }
+      })
+        </script>
+
+
+    </div><div style="display: none;"></div>
+    <style>
+        .humane, .humane-libnotify {
+            position: fixed;
+            -moz-transition: all 0.3s ease-out;
+            -webkit-transition: all 0.3s ease-out;
+            -ms-transition: all 0.3s ease-out;
+            -o-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+            z-index: 100000;
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        }
+
+        .humane, .humane-libnotify {
+            font-family: Ubuntu, Arial, sans-serif;
+            text-align: center;
+            font-size: 15px;
+            top: 10px;
+            right: 10px;
+            opacity: 0;
+            width: 150px;
+            color: #fff;
+            padding: 10px;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABQCAYAAADYxx/bAAAABmJLR0QA/wD/AP+gvaeTAAAANElEQVQYlWNgYGB4ysTAwMDAxMjICCUQXDQWAwMDAxMTExMedcRyB6d5CAMQ5hGrjSrmAQBQdgIXlosSTwAAAABJRU5ErkJggg==');
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0,0,0,0.9)), color-stop(1, rgba(50,50,50,0.9))) no-repeat;
+            background: -moz-linear-gradient(top, rgba(0,0,0,0.9) 0%, rgba(50,50,50,0.9) 100%) no-repeat;
+            background: -webkit-linear-gradient(top, rgba(0,0,0,0.9) 0%, rgba(50,50,50,0.9) 100%) no-repeat;
+            background: -ms-linear-gradient(top, rgba(0,0,0,0.9) 0%, rgba(50,50,50,0.9) 100%) no-repeat;
+            background: -o-linear-gradient(top, rgba(0,0,0,0.9) 0%, rgba(50,50,50,0.9) 100%) no-repeat;
+            background: linear-gradient(top, rgba(0,0,0,0.9) 0%, rgba(50,50,50,0.9) 100%) no-repeat;
+            *background-color: #000;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: 0 4px 4px -4px #000;
+            box-shadow: 0 4px 4px -4px #000;
+            -moz-transform: translateY(-40px);
+            -webkit-transform: translateY(-40px);
+            -ms-transform: translateY(-40px);
+            -o-transform: translateY(-40px);
+            transform: translateY(-40px);
+        }
+
+            .humane p, .humane-libnotify p, .humane ul, .humane-libnotify ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            .humane ul, .humane-libnotify ul {
+                list-style: none;
+            }
+
+            .humane.humane-libnotify-info, .humane-libnotify.humane-libnotify-info {
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABQCAYAAADYxx/bAAAABmJLR0QA/wD/AP+gvaeTAAAAMUlEQVQYlWNgYDB6ysTAwMDAxMDACCcYUFkMDEwMDEwMBNVhkxg65jGhmke6M6hgHgBSdgHnpZwADwAAAABJRU5ErkJggg==');
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0,0,50,0.9)), color-stop(1, rgba(0,0,100,0.9))) no-repeat;
+                background: -moz-linear-gradient(top, rgba(0,0,50,0.9) 0%, rgba(0,0,100,0.9) 100%) no-repeat;
+                background: -webkit-linear-gradient(top, rgba(0,0,50,0.9) 0%, rgba(0,0,100,0.9) 100%) no-repeat;
+                background: -ms-linear-gradient(top, rgba(0,0,50,0.9) 0%, rgba(0,0,100,0.9) 100%) no-repeat;
+                background: -o-linear-gradient(top, rgba(0,0,50,0.9) 0%, rgba(0,0,100,0.9) 100%) no-repeat;
+                background: linear-gradient(top, rgba(0,0,50,0.9) 0%, rgba(0,0,100,0.9) 100%) no-repeat;
+                *background-color: #030;
+            }
+
+            .humane.humane-libnotify-success, .humane-libnotify.humane-libnotify-success {
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABQCAYAAADYxx/bAAAABmJLR0QA/wD/AP+gvaeTAAAAMUlEQVQYlWNgMGJ4ysTAwMDAxMAIJxhQWQwMDEwMTKgS2NRhkxg65jGhmke6M6hhHgBS2QHn2LzhygAAAABJRU5ErkJggg==');
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0,50,0,0.9)), color-stop(1, rgba(0,100,0,0.9))) no-repeat;
+                background: -moz-linear-gradient(top, rgba(0,50,0,0.9) 0%, rgba(0,100,0,0.9) 100%) no-repeat;
+                background: -webkit-linear-gradient(top, rgba(0,50,0,0.9) 0%, rgba(0,100,0,0.9) 100%) no-repeat;
+                background: -ms-linear-gradient(top, rgba(0,50,0,0.9) 0%, rgba(0,100,0,0.9) 100%) no-repeat;
+                background: -o-linear-gradient(top, rgba(0,50,0,0.9) 0%, rgba(0,100,0,0.9) 100%) no-repeat;
+                background: linear-gradient(top, rgba(0,50,0,0.9) 0%, rgba(0,100,0,0.9) 100%) no-repeat;
+                *background-color: #030;
+            }
+
+            .humane.humane-libnotify-error, .humane-libnotify.humane-libnotify-error {
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADICAYAAAAp8ov1AAAABmJLR0QA/wD/AP+gvaeTAAAAPklEQVQokWMwYmB4ysTAwMCATjASFsOmBBvBRJ7x+O0g0wCS7CDTH/RwH7X9MVDuwyaG032D2M2UeIYO7gMAqt8C19Bn7+YAAAAASUVORK5CYII=');
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(50,0,0,0.9)), color-stop(1, rgba(100,0,0,0.9))) no-repeat;
+                background: -moz-linear-gradient(top, rgba(50,0,0,0.9) 0%, rgba(100,0,0,0.9) 100%) no-repeat;
+                background: -webkit-linear-gradient(top, rgba(50,0,0,0.9) 0%, rgba(100,0,0,0.9) 100%) no-repeat;
+                background: -ms-linear-gradient(top, rgba(50,0,0,0.9) 0%, rgba(100,0,0,0.9) 100%) no-repeat;
+                background: -o-linear-gradient(top, rgba(50,0,0,0.9) 0%, rgba(100,0,0,0.9) 100%) no-repeat;
+                background: linear-gradient(top, rgba(50,0,0,0.9) 0%, rgba(100,0,0,0.9) 100%) no-repeat;
+                *background-color: #300;
+            }
+
+            .humane.humane-animate, .humane-libnotify.humane-libnotify-animate {
+                opacity: 1;
+                -moz-transform: translateY(0);
+                -webkit-transform: translateY(0);
+                -ms-transform: translateY(0);
+                -o-transform: translateY(0);
+                transform: translateY(0);
+            }
+
+                .humane.humane-animate:hover, .humane-libnotify.humane-libnotify-animate:hover {
+                    opacity: 0.2;
+                }
+
+            .humane.humane-animate, .humane-libnotify.humane-libnotify-js-animate {
+                opacity: 1;
+                -moz-transform: translateY(0);
+                -webkit-transform: translateY(0);
+                -ms-transform: translateY(0);
+                -o-transform: translateY(0);
+                transform: translateY(0);
+            }
+
+                .humane.humane-animate:hover, .humane-libnotify.humane-libnotify-js-animate:hover {
+                    opacity: 0.2;
+                    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+                }
+
+        .gi-assertion-select * {
+            cursor: crosshair !important;
+        }
+
+            .gi-assertion-select *:hover {
+                outline: 1px dotted rgba(0, 0, 0, 1);
+            }
+
+        .gi-assertion-selected {
+            outline: 3px solid rgba(0, 170, 0, 1) !important;
+        }
+    </style>
+</body>
+</html>

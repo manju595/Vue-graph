@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>#image{
+    width:50%;
+    height:50%;
+    -webkit-transition:.4s all;
+}
+.transition {
+    -webkit-transform: scale(2); 
+    -moz-transform: scale(2);
+    -o-transform: scale(2);
+    transform: scale(2);
+     
+}</style>
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+      <script>
+          $(document).ready(function () {
+              $('#image').hover(function () {
+                  $(this).addClass('transition');
+              }, function () {
+                  $(this).removeClass('transition');
+              });
+
+          });
+      </script>
+    
+</head>
+<body>
+    <img id="image" src="Pics/2.jpg" />
+</body>
+</html>
